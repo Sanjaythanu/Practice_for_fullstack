@@ -1,0 +1,237 @@
+<!-- index.html - EcoAware Website with Enhanced Auth and UI -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoAware | Protect Our Planet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f7f6;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #256029;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 { font-size: 1.8rem; }
+    nav a {
+      margin-left: 1.5rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .hero {
+      background: linear-gradient(to right, #a8e063, #56ab2f);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      border-radius: 0 0 50px 50px;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #ffffff;
+      color: #256029;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .btn:hover { background-color: #e0f2e9; }
+    .info {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+    }
+    .info h3 { color: #256029; }
+    .expandable {
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+      color: #007b3e;
+    }
+    .expanded-content {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #e9fbe9;
+      border-left: 4px solid #64b687;
+    }
+    .login-section {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .login-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .google { background: #fff; color: #444; border: 1px solid #ccc; }
+    .google:hover { background: #f1f1f1; }
+    .facebook { background: #1877f2; color: #fff; }
+    .facebook:hover { background: #155dc1; }
+    .apple { background: #000; color: #fff; }
+    .apple:hover { background: #222; }
+    .form-link {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+    }
+    .extra-section {
+      background: #fff;
+      border-left: 6px solid #6db67e;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .extra-section h3 {
+      margin-bottom: 1rem;
+      color: #2e7d32;
+    }
+    .extra-section p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    footer {
+      background: #256029;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+  </style>
+  <script>
+    function toggleExpand(id) {
+      const element = document.getElementById(id);
+      element.style.display = element.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>EcoAware 🌍</h1>
+    <nav>
+      <a href="#mission">Mission</a>
+      <a href="#actions">Actions</a>
+      <a href="#tips">Tips</a>
+      <a href="#education">Education</a>
+      <a href="#community">Community</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Protect Nature, Preserve Life</h2>
+    <p>Join the EcoAware movement to create a greener, more sustainable world — one step at a time.</p>
+    <a class="btn" href="#login">Get Involved</a>
+  </section>
+
+  <section id="mission">
+    <div class="info">
+      <h3>🌱 Our Mission</h3>
+      <p>Empowering communities to tackle climate change, pollution, and deforestation through education, action, and awareness.</p>
+      <div class="expandable" onclick="toggleExpand('missionMore')">Read more ▾</div>
+      <div id="missionMore" class="expanded-content">
+        <p>From eco-friendly campaigns to sustainable tech awareness, we offer resources and platforms for everyone to contribute meaningfully to the planet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="actions">
+    <div class="info">
+      <h3>🌿 Take Action</h3>
+      <ul>
+        <li>Participate in tree-planting drives 🌳</li>
+        <li>Say no to single-use plastic ♻️</li>
+        <li>Join community recycling programs ♼</li>
+        <li>Promote green transport 🚲</li>
+      </ul>
+      <div class="expandable" onclick="toggleExpand('actionsMore')">Learn more ➤</div>
+      <div id="actionsMore" class="expanded-content">
+        <p>Our starter kits help you launch green missions in your city. From e-waste bins to solar starter packs, we’ve got you covered.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="info">
+      <h3>💡 Green Living Tips</h3>
+      <p>Start with small steps: turn off unused lights, reduce water waste, and compost kitchen scraps.</p>
+      <div class="expandable" onclick="toggleExpand('tipsMore')">See more tips ➤</div>
+      <div id="tipsMore" class="expanded-content">
+        <p>Switch to a plant-based diet once a week, use energy-efficient appliances, and encourage your peers to do the same. Every act counts!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="extra-section">
+    <h3>📚 Environmental Education</h3>
+    <p>Access free online courses, documentaries, and articles to deepen your understanding of biodiversity, climate action, and eco-friendly practices. Our curated learning hub supports students, activists, and green tech innovators.</p>
+  </section>
+
+  <section id="community" class="extra-section">
+    <h3>🤝 Community Engagement</h3>
+    <p>Join regional EcoAware hubs and meet like-minded individuals passionate about sustainability. Host meetups, volunteer for cleanups, and participate in policy workshops to make your impact local and global.</p>
+  </section>
+
+  <section id="login" class="login-section">
+    <h3>🔐 Join EcoAware</h3>
+    <p>Sign in with one of your accounts to access exclusive features and community tools.</p>
+    <a class="login-btn google" href="https://accounts.google.com/signin" target="_blank">
+      <i class="fab fa-google"></i> Login with Google
+    </a>
+    <a class="login-btn facebook" href="https://www.facebook.com/login.php" target="_blank">
+      <i class="fab fa-facebook"></i> Login with Facebook
+    </a>
+    <a class="login-btn apple" href="https://appleid.apple.com/sign-in" target="_blank">
+      <i class="fab fa-apple"></i> Login with Apple
+    </a>
+    <p class="form-link">
+      Or share your interest via our <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgPxnDRKoZT7KmY7l49GtrQ4lfKnlguh3MjwFReKTqT3tvhQ/viewform" target="_blank">Google registration form</a> 📋
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 EcoAware • Inspiring Green Change 🌿</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FriendConnect - Make New Friends</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-users"></i>
+                <span>FriendConnect</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#discover" class="nav-link">Discover</a>
+                <a href="#profile" class="nav-link">Profile</a>
+                <a href="#messages" class="nav-link">Messages</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-auth">
+                <button class="btn btn-outline" id="login-btn">Login</button>
+                <button class="btn btn-primary" id="signup-btn">Sign Up</button>
+                <div class="user-menu" id="user-menu" style="display: none;">
+                    <img src="https://via.placeholder.com/40" alt="Profile" class="user-avatar">
+                    <span class="user-name">John Doe</span>
+                    <button class="btn btn-logout" id="logout-btn">Logout</button>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Connect with Amazing People</h1>
+                    <p class="hero-subtitle">Join thousands of people who are making new friends and building meaningful connections every day.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large" id="get-started-btn">Get Started</button>
+                        <button class="btn btn-outline btn-large" id="learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-cards">
+                        <div class="card card-1">
+                            <img src="https://via.placeholder.com/60" alt="User">
+                            <span>Sarah, 25</span>
+                        </div>
+                        <div class="card card-2">
+                            <img src="https://via.placeholder.com/60" alt="User">
+                            <span>Mike, 28</span>
+                        </div>
+                        <div class="card card-3">
+                            <img src="https://via.placeholder.com/60" alt="User">
+                            <span>Emma, 23</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auth Modals -->
+        <div class="modal" id="auth-modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" class="auth-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-age">Age</label>
+                        <input type="number" id="signup-age" min="18" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-location">Location</label>
+                        <input type="text" id="signup-location" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Discover Section -->
+        <section id="discover" class="discover-section">
+            <div class="container">
+                <h2 class="section-title">Discover New Friends</h2>
+                <div class="filters">
+                    <select id="age-filter" class="filter-select">
+                        <option value="">All Ages</option>
+                        <option value="18-25">18-25</option>
+                        <option value="26-35">26-35</option>
+                        <option value="36-45">36-45</option>
+                        <option value="46+">46+</option>
+                    </select>
+                    <select id="location-filter" class="filter-select">
+                        <option value="">All Locations</option>
+                        <option value="New York">New York</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Houston">Houston</option>
+                    </select>
+                    <select id="interest-filter" class="filter-select">
+                        <option value="">All Interests</option>
+                        <option value="Music">Music</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Art">Art</option>
+                    </select>
+                </div>
+                <div class="users-grid" id="users-grid">
+                    <!-- User cards will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="profile-section">
+            <div class="container">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/150" alt="Profile" id="profile-avatar">
+                            <button class="edit-avatar-btn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profile-name">Your Name</h2>
+                            <p id="profile-location">Location</p>
+                            <p id="profile-age">Age</p>
+                            <button class="btn btn-outline" id="edit-profile-btn">Edit Profile</button>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-section">
+                            <h3>About Me</h3>
+                            <p id="profile-bio">Tell us about yourself...</p>
+                        </div>
+                        <div class="profile-section">
+                            <h3>Interests</h3>
+                            <div class="interests-tags" id="interests-tags">
+                                <!-- Interest tags will be added here -->
+                            </div>
+                        </div>
+                        <div class="profile-section">
+                            <h3>My Friends</h3>
+                            <div class="friends-list" id="friends-list">
+                                <!-- Friends will be listed here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages" class="messages-section">
+            <div class="container">
+                <h2 class="section-title">Messages</h2>
+                <div class="messages-container">
+                    <div class="conversations-list" id="conversations-list">
+                        <!-- Conversations will be listed here -->
+                    </div>
+                    <div class="chat-area" id="chat-area">
+                        <div class="chat-header">
+                            <h3>Select a conversation to start chatting</h3>
+                        </div>
+                        <div class="chat-messages" id="chat-messages">
+                            <!-- Messages will appear here -->
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="message-input" placeholder="Type your message...">
+                            <button class="btn btn-primary" id="send-message-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About FriendConnect</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>FriendConnect is a platform designed to help people make meaningful connections and build lasting friendships. Whether you're new to a city, looking to expand your social circle, or simply want to meet people with similar interests, we're here to help.</p>
+                        <p>Our mission is to create a safe, inclusive environment where everyone can find their tribe and build genuine relationships.</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Safe & Secure</h3>
+                            <p>Your privacy and safety are our top priorities.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Diverse Community</h3>
+                            <p>Connect with people from all walks of life.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Meaningful Connections</h3>
+                            <p>Focus on building genuine friendships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FriendConnect</h3>
+                    <p>Making the world a friendlier place, one connection at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#discover">Discover</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#safety">Safety Tips</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FriendConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html> 
